@@ -1,8 +1,8 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 import { Type } from 'recife';
 
-@Type()
 @Entity('user')
+@Type()
 class UserModel {
   @PrimaryGeneratedColumn()
   id?: number;
