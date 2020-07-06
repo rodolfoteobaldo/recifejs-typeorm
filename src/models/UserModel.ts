@@ -3,7 +3,7 @@ import { Type } from 'recife';
 
 @Entity('user')
 @Type()
-class User {
+class UserModel {
   @PrimaryGeneratedColumn()
   id?: number;
 
@@ -17,4 +17,4 @@ class User {
   username?: string;
 }
 
-export default User;
+export default UserModel;
