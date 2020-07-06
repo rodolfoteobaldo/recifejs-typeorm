@@ -1,20 +1,16 @@
 import { Query, Mutation } from 'recife';
 
 import UserModel from '../models/UserModel';
-import AddressModel from '../models/AddressModel';
 import { UserForm, UserDelete } from '../inputs/UserInput';
+import { UserRepository } from '../repositories/UserRepository';
+import { getCustomRepository } from 'typeorm';
 
 class UserController {
-  addressDefault: AddressModel;
+  userRepository: UserRepository;
 
-  constructor() {
-    this.addressDefault = new AddressModel(
-      'Av. Alfredo Lisboa',
-      'Recife',
-      'Pernambuco',
-      '50020360'
-    );
-  }
+  // constructor() {
+
+  // }
 
   @Query()
   getUser(): UserModel {
@@ -22,7 +18,6 @@ class UserController {
     user.name = 'Quaco Cainr';
     user.email = 'quacocainr@email.com';
     user.username = 'quacocainr';
-    user.address = this.addressDefault;
 
     return user;
   }
@@ -33,7 +28,9 @@ class UserController {
     user.name = input.name;
     user.email = input.email;
     user.username = input.username;
-    user.address = this.addressDefault;
+    this.userRepository = getCustomRepository(UserRepository);
+    console.log(this.userRepository);
+    this.userRepository.save(user);
 
     return user;
   }
@@ -44,12 +41,12 @@ class UserController {
     user.name = input.name;
     user.email = input.email;
     user.username = input.username;
-    user.address = this.addressDefault;
 
     return user;
   }
 
   @Mutation()
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   deleteUser(input: UserDelete): boolean {
     return true;
   }

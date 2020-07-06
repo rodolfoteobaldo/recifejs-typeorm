@@ -1,16 +1,14 @@
 import { Type } from 'recife';
-import AddressModel from './AddressModel';
 
 @Type()
 class UserModel {
-  name?: string;
-  email?: string;
-  username?: string;
-  address?: AddressModel;
+  id?: number;
 
-  static getAddress(user: UserModel) {
-    return user.address;
-  }
+  name?: string;
+
+  email?: string;
+
+  username?: string;
 }
 
 export default UserModel;
