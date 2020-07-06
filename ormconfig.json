@@ -1,29 +1,25 @@
 [
-   {
-      "name": "development",
-      "type": "sqlite",
-      "database": "src/database/db.sqlite",
-      "logging": true,
-      "synchronize": true,
-      "entities": [
-         "src/models/*.ts"
-      ],
-      "cli": {
-         "entitiesDir": "src/models"
-      }
-   },
-   {
-      "name": "test",
-      "type": "sqlite",
-      "database": "src/database/db.test.sqlite",
-      "synchronize": true,
-      "logging": false,
-      "dropschema": true,
-      "entities": [
-         "src/app/models/*.ts"
-      ],
-      "cli": {
-         "entitiesDir": "src/app/models"
-      }
-   }
+  {
+    "name": "development",
+    "type": "sqlite",
+    "database": "src/database/db.sqlite",
+    "logging": true,
+    "synchronize": true,
+    "entities": ["dist/models/*.js"],
+    "cli": {
+      "entitiesDir": "dist/models"
+    }
+  },
+  {
+    "name": "test",
+    "type": "sqlite",
+    "database": "src/database/db.test.sqlite",
+    "synchronize": true,
+    "logging": false,
+    "dropschema": true,
+    "entities": ["dist/models/*.js"],
+    "cli": {
+      "entitiesDir": "dist/models"
+    }
+  }
 ]
